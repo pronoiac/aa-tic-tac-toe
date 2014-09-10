@@ -1,0 +1,16 @@
+div  {
+  border: thin solid green;
+  float: left;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}
+
+.row :last-child {
+  /* page break after */
+  
+}
+
+.green {
+  background-color: green;
+}

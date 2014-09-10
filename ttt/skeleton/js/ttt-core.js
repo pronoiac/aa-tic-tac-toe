@@ -197,6 +197,10 @@ Game.prototype.winner = function () {
   return this.board.winner();
 };
 
+exports.sayHello = function() {
+  alert('Hellow world');
+}
+
 module.exports = Game;
 
 },{"./board":1,"./moveError":4}],3:[function(_dereq_,module,exports){

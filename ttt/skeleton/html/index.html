@@ -6,6 +6,9 @@
     <link rel="stylesheet" type="text/css" href="../css/ttt.css">
   </head>
   <body>
+    <section id="gameLayout">
+    </section>
+    
     <script src="../js/jquery-2.1.1.js"></script>
     <!-- Whackjobs at GithubPages don't understand symlinks... -->
     <script src="../js/ttt-core.js"></script>
@@ -13,6 +16,26 @@
 
     <script>
       // Write your code here.
+      $(function () {
+        var widget = new TTT.Widget($("#gameLayout"));
+        widget.setupBoard();
+        
+        var $squares = $('.square');
+        
+        // while (!widget.game.isOver()) {
+          widget.play();
+        // };
+        
+        // $squares.addClass("green");
+        
+        // $("div.square").on("click", function(event) {
+        //   event.preventDefault();
+        //
+        //   console.log(event.currentTarget);
+        // });
+        
+        
+      });
     </script>
   </body>
 </html>
