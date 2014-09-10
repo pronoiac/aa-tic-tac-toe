@@ -34,6 +34,9 @@
       event.preventDefault();
       //try to place current player's mark on square
       console.log(event.currentTarget);
+      // debugger;
+      // that.textContent("mark");
+      event.currentTarget.textContent = "mark";
       that.makeMove(event.currentTarget);
       // 
     });
@@ -45,12 +48,14 @@
     for (var i = 0; i < 3; i++) {
       var $row = $('<div></div>')
       for (var j = 0; j < 3; j++) {
+        // cell
         var $div = $('<div></div>');
         $div.addClass('square');
         // $div.addId('square' + i + j);
         $div.attr('id', i + '_' + j );
         $div.text(i + ", " + j);
-        $div.text(this.game.board.grid[i][j]);
+        // $div.text(this.game.board.grid[i][j]);
+        //$div.addClass("green"); //('text', "What.");
         console.log($div.text);
         $row.append($div);
       };
