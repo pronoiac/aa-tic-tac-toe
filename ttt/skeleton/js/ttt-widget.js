@@ -10,25 +10,8 @@
     
   };
 
-  Widget.prototype.bindEvents = function () {
-  };
-
-  Widget.prototype.makeMove = function makeMove ($square) {
-    console.log ("dbg: MM");
-    console.log($square);
-    var x = parseInt($square.id[0]);
-    //to account for the underscore, use index of 2
-    var y = parseInt($square.id[2]);
-    return (this.game.playMove([x,y]));
-  };
-
-  Widget.prototype.play = function () {
-    //
-    var that = this;
-    
-    // var widget = new TTT.Widget($("#gameLayout"));
-    this.setupBoard();
-
+  Widget.prototype.bindEvents = function (context) {
+    var that = context;
     $("div.square").on("click", function(event) {
       event.preventDefault();
       //try to place current player's mark on square
@@ -54,8 +37,28 @@
         $div.text(mark + " wins");
         $div.css("font-size", 36);
         $("section").append($div);
-      }
+      };
     });
+    
+  };
+
+  Widget.prototype.makeMove = function makeMove ($square) {
+    console.log ("dbg: MM");
+    console.log($square);
+    var x = parseInt($square.id[0]);
+    //to account for the underscore, use index of 2
+    var y = parseInt($square.id[2]);
+    return (this.game.playMove([x,y]));
+  };
+
+  Widget.prototype.play = function () {
+    //
+    var that = this;
+    
+    // var widget = new TTT.Widget($("#gameLayout"));
+    this.setupBoard();
+
+    this.bindEvents(that);
   };
 
   Widget.prototype.setupBoard = function () {
