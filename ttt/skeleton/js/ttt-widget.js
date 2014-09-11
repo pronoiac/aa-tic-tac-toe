@@ -19,11 +19,7 @@
     var x = parseInt($square.id[0]);
     //to account for the underscore, use index of 2
     var y = parseInt($square.id[2]);
-    // debugger
-    // this.game.playMove([x, y]);
-    this.game.playMove([x,y]);
-    
-    //
+    return (this.game.playMove([x,y]));
   };
 
   Widget.prototype.play = function () {
@@ -34,11 +30,19 @@
       event.preventDefault();
       //try to place current player's mark on square
       console.log(event.currentTarget);
-      // debugger;
-      // that.textContent("mark");
-      event.currentTarget.textContent = "mark";
+      var x = parseInt(event.currentTarget.id[0]);
+      var y = parseInt(event.currentTarget.id[2]);
+      
       that.makeMove(event.currentTarget);
-      // 
+      mark = that.game.board.grid[x][y];
+      event.currentTarget.textContent = mark;
+
+      if (mark === "x") {
+        event.currentTarget.classList.add("green");
+      } else {
+        event.currentTarget.classList.add("red");
+      }
+       
     });
   };
 
@@ -54,8 +58,7 @@
         // $div.addId('square' + i + j);
         $div.attr('id', i + '_' + j );
         $div.text(i + ", " + j);
-        // $div.text(this.game.board.grid[i][j]);
-        //$div.addClass("green"); //('text', "What.");
+
         console.log($div.text);
         $row.append($div);
       };

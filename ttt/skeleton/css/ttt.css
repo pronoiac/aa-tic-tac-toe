@@ -4,6 +4,7 @@ div  {
   display: inline-block;
   width: 100px;
   height: 100px;
+  font-size: 0%;
 }
 
 .row :last-child {
@@ -13,4 +14,9 @@ div  {
 
 .green {
   background-color: green;
+  font-size: 64;
+}
+
+.red {
+  background-color: red;
 }
