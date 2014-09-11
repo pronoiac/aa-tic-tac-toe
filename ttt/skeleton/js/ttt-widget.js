@@ -44,9 +44,8 @@
       }
       // debugger;
       if (that.game.isOver()) {
-        debugger;
         // turn off the listener
-        $("div.square").off;
+        $("div.square").off("click");
         // inform the winning player
         var $div = $('<div></div>');
         $div.text(mark + " wins");
