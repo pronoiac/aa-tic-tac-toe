@@ -1,5 +1,5 @@
 div  {
-  border: thin solid green;
+  border: thin solid black;
   float: left;
   display: inline-block;
   width: 100px;
@@ -12,11 +12,11 @@ div  {
   
 }
 
-.green {
-  background-color: green;
+.mark_x {
+  background-color: blue;
   font-size: 64;
 }
 
-.red {
+.mark_y {
   background-color: red;
 }

@@ -25,11 +25,11 @@
   Widget.prototype.play = function () {
     //
     var that = this;
-    console.log ("dbg, play called");
+
     $("div.square").on("click", function(event) {
       event.preventDefault();
       //try to place current player's mark on square
-      console.log(event.currentTarget);
+
       var x = parseInt(event.currentTarget.id[0]);
       var y = parseInt(event.currentTarget.id[2]);
       
@@ -38,11 +38,21 @@
       event.currentTarget.textContent = mark;
 
       if (mark === "x") {
-        event.currentTarget.classList.add("green");
+        event.currentTarget.classList.add("mark_x");
       } else {
-        event.currentTarget.classList.add("red");
+        event.currentTarget.classList.add("mark_y");
       }
-       
+      // debugger;
+      if (that.game.isOver()) {
+        debugger;
+        // turn off the listener
+        $("div.square").off;
+        // inform the winning player
+        var $div = $('<div></div>');
+        $div.text(mark + " wins");
+        $div.css("font-size", 36);
+        $("section").append($div);
+      }
     });
   };
 
@@ -55,18 +65,13 @@
         // cell
         var $div = $('<div></div>');
         $div.addClass('square');
-        // $div.addId('square' + i + j);
         $div.attr('id', i + '_' + j );
         $div.text(i + ", " + j);
-
-        console.log($div.text);
         $row.append($div);
       };
       // end inner loop
       this.el.append($row);
     };
-    
-    console.log("dbg: W.setupBoard");
   };
   
   Widget.prototype.square = function (square_no) {
