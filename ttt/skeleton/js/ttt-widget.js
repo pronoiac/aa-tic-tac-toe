@@ -25,6 +25,9 @@
   Widget.prototype.play = function () {
     //
     var that = this;
+    
+    // var widget = new TTT.Widget($("#gameLayout"));
+    this.setupBoard();
 
     $("div.square").on("click", function(event) {
       event.preventDefault();
